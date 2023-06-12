@@ -49,7 +49,7 @@ resource "aws_key_pair" "minecraft_terra" {
   
 
 
-resource "aws_instance" "minecraft" {
+resource "aws_instance" "minecraft"{
     ami = "ami-076bca9dd71a9a578"
     instance_type = "t2.medium"
     key_name = aws_key_pair.minecraft_terra.key_name
@@ -74,6 +74,10 @@ output "public_ip" {
 
 output "public_dns" {
     value = aws_instance.minecraft.public_dns
+}
+
+output "port" {
+    value = "25565"
 }
 
 
